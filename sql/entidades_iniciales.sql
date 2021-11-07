@@ -1,0 +1,50 @@
+DROP TABLE IF EXISTS `USUARIO`;
+CREATE TABLE `USUARIO` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ACCESO` datetime DEFAULT NULL,
+  `ACTIVO` tinyint(1) DEFAULT '0',
+  `CREACION` datetime DEFAULT NULL,
+  `EMAIL` varchar(255) DEFAULT NULL,
+  `LOGIN` varchar(255) DEFAULT NULL,
+  `NOMBRE` varchar(255) DEFAULT NULL,
+  `PASSWORD` varchar(255) DEFAULT NULL,
+  `ROL` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `USUARIO` VALUES 
+    (1,'2019-11-25 13:19:20',1,'2019-11-25 13:19:20','admin@facturaaas.net','admin','Administrador','qfIP9LNksOTN3EeDyqLC7Jow+kKeCpx8','ADMINISTRADOR'),
+    (2,'2019-11-25 13:19:21',1,'2019-11-25 13:19:21','ana@facturaaas.net','ana','Ana Anido Anido','ulAxyNxAODr9XXG3ZOVvotwg6dCySRea','USUARIO');
+
+
+
+DROP TABLE IF EXISTS `FORMA_PAGO`;
+CREATE TABLE `FORMA_PAGO` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ACTIVO` tinyint(1) DEFAULT 0,
+  `NOMBRE` varchar(255) DEFAULT NULL,
+  `NUMEROPAGOS` int(11) DEFAULT NULL,
+  `PERIODICIDAD` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `FORMA_PAGO` VALUES 
+     (1,1,'Pago a 30-60-90 días',3,30),
+     (2,1,'Pago al contado',1,0),
+     (3,1,'Pago por transferencia',1,0);
+
+
+DROP TABLE IF EXISTS `TIPO_IVA`;
+CREATE TABLE `TIPO_IVA` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ACTIVO` tinyint(1) DEFAULT 0,
+  `NOMBRE` varchar(255) DEFAULT NULL,
+  `PORCENTAJE` double DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO `TIPO_IVA` VALUES 
+     (1,1,'IVA normal',21),
+     (2,1,'IVA reducido',10),
+     (3,1,'IVA superreducido',4);
